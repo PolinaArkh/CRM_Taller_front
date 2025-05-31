@@ -1,0 +1,35 @@
+.content {
+  padding: 32px;
+}
+
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-nav-list {
+  ul {
+    list-style: none;
+  }
+}
