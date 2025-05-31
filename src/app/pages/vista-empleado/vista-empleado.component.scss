@@ -1,0 +1,71 @@
+$violeta: #6a1b9a;
+$violeta-claro: #ab47bc;
+$gris-fondo: #fafafa;
+$borde: 1px solid #e0e0e0;
+
+.car-list {
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
+
+  h2 {
+    color: $violeta;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tabla-wrapper {
+    overflow-x: auto;
+  }
+
+  table.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: $gris-fondo;
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+    th,
+    td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: $borde;
+      white-space: nowrap;
+    }
+
+    thead {
+      background-color: $violeta;
+      color: #fff;
+
+      th {
+        font-weight: 600;
+        font-size: 1rem;
+      }
+    }
+
+    tbody {
+      tr:hover {
+        background-color: lighten($violeta-claro, 42%);
+      }
+
+      td {
+        color: #333;
+
+        &.acciones {
+          display: flex;
+          gap: 0.5rem;
+          flex-wrap: wrap;
+
+          button {
+            font-weight: 500;
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
+  }
+}

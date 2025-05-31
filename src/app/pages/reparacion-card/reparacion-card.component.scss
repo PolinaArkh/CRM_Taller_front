@@ -1,0 +1,18 @@
+.reparaciones-container {
+  app-lista-reparaciones-coche {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+button {
+  margin-bottom: 1rem;
+  font-weight: 500;
+}

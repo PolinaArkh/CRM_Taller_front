@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Confirmacion Reparación</h1>
+
+<p class="alert alert-warning" role="alert">
+  ¿Estas seguro que este coche ha sido reparado?
+</p>
+
+<mat-dialog-actions align="end">
+  <button mat-stroked-button mat-dialog-close>Cancelar</button>
+  <button
+    mat-flat-button
+    color="primary"
+    type="submit"
+    color="primary"
+    (click)="marcarComoArreglado(reparacion)"
+  >
+    Aceptar
+  </button>
+</mat-dialog-actions>

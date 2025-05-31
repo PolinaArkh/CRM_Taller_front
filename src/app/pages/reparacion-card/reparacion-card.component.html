@@ -1,0 +1,17 @@
+<div class="container">
+  <button mat-flat-button color="primary" (click)="volverAtras()">
+    <mat-icon>arrow_back</mat-icon>
+    Volver
+  </button>
+
+  <h2>Coche</h2>
+  <app-detalle-coche [coche]="coche" />
+
+  <h2>Reparaciones</h2>
+  <div class="reparaciones-container">
+    <app-lista-reparaciones-coche
+      [reparaciones]="reparaciones"
+      (recargarDatos)="onRecargarDatos()"
+    />
+  </div>
+</div>

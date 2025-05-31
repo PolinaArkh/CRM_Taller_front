@@ -1,0 +1,71 @@
+<main class="registro-container">
+  <mat-card class="registro-card">
+    <form
+      class="registro-form"
+      [formGroup]="registerForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <h2 class="titulo">Registrar Empleado</h2>
+
+      <div class="form-grid">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="nombre" />
+          @if (registerForm.get('nombre')?.hasError('required')) {
+          <mat-error> Nombre es obligatorio </mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Apellido</mat-label>
+          <input matInput formControlName="apellido" />
+          @if (registerForm.get('apellido')?.hasError('required')) {
+          <mat-error> Apellido es obligatorio </mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" />
+          @if (registerForm.get('email')?.hasError('required')) {
+          <mat-error> Email es obligatorio </mat-error>
+          } @if (registerForm.get('email')?.hasError('email')) {
+          <mat-error> Email no válido </mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" formControlName="password" />
+          @if (registerForm.get('password')?.hasError('required')) {
+          <mat-error> Contraseña es obligatoria </mat-error>
+          } @if (registerForm.get('password')?.hasError('pattern')) {
+          <mat-error> Contraseña no válida </mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Departamento</mat-label>
+          <input matInput formControlName="departamento" />
+          @if (registerForm.get('departamento')?.hasError('required')) {
+          <mat-error> Departamento es obligatorio </mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <button
+        mat-flat-button
+        color="primary"
+        type="submit"
+        [disabled]="registerForm.invalid"
+      >
+        Registrarse
+      </button>
+
+      <p class="text-secundario">
+        ¿Ya tienes cuenta?
+        <a mat-button [routerLink]="'/login'">Iniciar sesión</a>
+      </p>
+    </form>
+  </mat-card>
+</main>

@@ -1,0 +1,63 @@
+.empleado-card {
+        margin: 20px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        width: 400px;
+        /* Adjust card width */
+        height: 200px;
+        /* Adjust card height */
+}
+
+.card-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+}
+
+.empleado-photo {
+        margin-right: 38px;
+
+        img {
+                width: 100px;
+                height: 140px;
+                border-radius: 8px;
+                object-fit: cover;
+                border: 2px solid #ccc;
+        }
+}
+
+.empleado-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+}
+
+.badge {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 12px;
+        margin-top: 8px;
+}
+
+.badge.badge-admin {
+        background-color: #4caf50 !important;
+}
+
+.badge.badge-mecanic {
+        background-color: #ff5722 !important;
+}
+
+.email {
+        margin-top: 8px;
+        font-size: 14px;
+        color: #555;
+}

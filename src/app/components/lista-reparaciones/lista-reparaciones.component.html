@@ -1,0 +1,74 @@
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <ng-container matColumnDef="ReparacionID">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>ID Reparación</th>
+    <td mat-cell *matCellDef="let reparacion">
+      {{ reparacion.ReparacionID }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="FechaEntrada">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de Entrada</th>
+    <td mat-cell *matCellDef="let reparacion">
+      {{ reparacion.FechaEntrada | date : "fullDate" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="CocheMatricula">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Matrícula</th>
+    <td mat-cell *matCellDef="let reparacion">
+      {{ reparacion.CocheMatricula }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Descripcion">
+    <th mat-header-cell *matHeaderCellDef>Descripción</th>
+    <td mat-cell *matCellDef="let reparacion">
+      {{ reparacion.Descripcion }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="NombreEstado">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado</th>
+    <td mat-cell *matCellDef="let reparacion">
+      <span
+        class="badge"
+        [ngClass]="{
+          'badge-warning': reparacion.NombreEstado === 'pendiente',
+          'badge-primary': reparacion.NombreEstado === 'en_proceso',
+          'badge-success': reparacion.NombreEstado === 'finalizado'
+        }"
+      >
+        {{ reparacion.NombreEstado }}
+      </span>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Presupuesto">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Presupuesto</th>
+    <td mat-cell *matCellDef="let reparacion">
+      {{ reparacion.Presupuesto | currency : "EUR" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="DiagnosticoMecanico">
+    <th mat-header-cell *matHeaderCellDef>Diagnóstico</th>
+    <td mat-cell *matCellDef="let reparacion">
+      {{ reparacion.DiagnosticoMecanico }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef>Acciones</th>
+    <td mat-cell *matCellDef="let reparacion">
+      <a
+        mat-button
+        [routerLink]="['/dashboard/reparacion', reparacion.CocheMatricula]"
+      >
+        Ver Reparación
+      </a>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

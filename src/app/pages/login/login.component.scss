@@ -1,0 +1,58 @@
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    var(--mat-sys-primary) 0%,
+    var(--mat-sys-secondary) 100%
+  );
+  font-family: "Roboto", sans-serif;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: var(--mat-sys-surface-container);
+}
+
+.titulo {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--mat-sys-primary);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid var(--mat-sys-primary);
+  padding-bottom: 10px;
+  animation: fadeInDown 0.6s ease-in-out;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--mat-sys-on-surface);
+
+  a {
+    color: var(--mat-sys-primary);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--mat-sys-primary-container);
+    }
+  }
+}

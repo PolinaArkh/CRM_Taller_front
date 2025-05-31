@@ -1,0 +1,55 @@
+<mat-drawer-container>
+  <mat-drawer #drawer class="sidenav" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>
+      <a mat-button [routerLink]="`/dashboard/${decodedToken?.role}`">
+        <img ngSrc="/logo-taller.svg" alt="logo de taller CARIT en negro y morado neon" priority width="150"
+          height="37" />
+      </a>
+    </mat-toolbar>
+    <mat-nav-list>
+      @for (route of routesByRole[decodedToken?.role || 'admin']; track $index)
+      {
+      <a mat-list-item [routerLink]="route.path" #link="routerLinkActive" routerLinkActive [activated]="link.isActive">
+        <span>{{ route.title }}</span>
+      </a>
+      }
+    </mat-nav-list>
+  </mat-drawer>
+
+  <mat-drawer-content #drawerContent>
+    <mat-toolbar color="primary" class="d-flex align-items-center justify-content-between w-100 text-center">
+      @if (isHandset$ | async) {
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      }
+      <h1 class="title">
+        <span>{{ actualRoute }}</span>
+      </h1>
+
+      <div class="d-flex align-items-center gap-3">
+        <app-theme-toggle></app-theme-toggle>
+        <button mat-stroked-button [matMenuTriggerFor]="menu">
+          <mat-icon class="material-symbols-outlined">account_circle</mat-icon>
+          {{ decodedToken?.email }}
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [routerLink]="'/dashboard/profile'">
+            <mat-icon class="material-symbols-outlined">person</mat-icon>
+            <span>My Profile</span>
+          </button>
+          <button mat-menu-item (click)="onSignOut()">
+            <mat-icon class="material-symbols-outlined">logout</mat-icon>
+            <span>Sign Out</span>
+          </button>
+        </mat-menu>
+      </div>
+    </mat-toolbar>
+    <div class="sidenav-scroll-wrapper">
+      <div class="sidenav-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

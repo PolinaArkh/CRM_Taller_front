@@ -1,0 +1,38 @@
+<main class="login-page">
+  <mat-card class="login-card">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <h2 class="titulo">Bienvenido</h2>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" />
+
+        @if (loginForm.get('email')?.hasError('required')) {
+        <mat-error> El email es obligatorio </mat-error>
+        } @if (loginForm.get('email')?.hasError('email')) {
+        <mat-error> Formato de email no válido </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" formControlName="password" />
+
+        @if (loginForm.get('password')?.hasError('required')) {
+        <mat-error> La contraseña es obligatoria </mat-error>
+        } @if (loginForm.get('password')?.hasError('pattern')) {
+        <mat-error> Contraseña incorrecta </mat-error>
+        }
+      </mat-form-field>
+
+      <button mat-flat-button type="submit" [disabled]="loginForm.invalid">
+        Iniciar Sesión
+      </button>
+
+      <p class="register-link">
+        ¿No tienes cuenta?
+        <a mat-button [routerLink]="'/register'">Regístrate</a>
+      </p>
+    </form>
+  </mat-card>
+</main>

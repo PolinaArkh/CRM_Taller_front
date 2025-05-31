@@ -1,0 +1,24 @@
+.badge {
+  display: inline-block;
+  padding: 0.5em 0.75em;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 0.25rem;
+  color: var(--mat-sys-on-primary);
+
+  &-warning {
+    background-color: var(--mat-sys-error-container);
+    color: var(--mat-sys-on-error-container);
+  }
+
+  &-primary {
+    background-color: var(--mat-sys-primary);
+    color: var(--mat-sys-on-primary);
+  }
+
+  &-success {
+    background-color: var(--mat-sys-tertiary-container);
+    color: var(--mat-sys-on-tertiary-container);
+  }
+}

@@ -1,0 +1,62 @@
+<form class="car-form" [formGroup]="formRegistro" (ngSubmit)="onSubmit()">
+    <h2>Registro de Vehículo ^_^</h2>
+
+    <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Marca</mat-label>
+        <input id="marca" type="text" matInput formControlName="marca">
+        @if (checkError('marca', 'required')) {
+        <mat-error>El campo marca es obligatorio</mat-error>
+        }
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Modelo</mat-label>
+        <input id="modelo" type="text" matInput formControlName="modelo">
+        @if (checkError('modelo', 'required')) {
+        <mat-error>El campo modelo es obligatorio</mat-error>
+        }
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Año</mat-label>
+        <input id="año" type="number" matInput formControlName="año">
+        @if (checkError('año', 'required')) {
+        <mat-error>El campo año es obligatorio</mat-error>
+        }
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+        <mat-label>VIN</mat-label>
+        <input id="vin" type="text" matInput formControlName="vin">
+        @if (checkError('vin', 'required')) {
+        <mat-error>El campo VIN es obligatorio</mat-error>
+        }
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Color</mat-label>
+        <input id="color" type="text" matInput formControlName="color">
+        @if (checkError('color', 'required')) {
+        <mat-error>El campo color es obligatorio</mat-error>
+        }
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Nombre del cliente</mat-label>
+        <mat-select formControlName="nombre">
+            @for (cliente of clientes; track $index) {
+  <mat-option [value]="cliente.Nombre">
+    {{ cliente.Nombre }}
+  </mat-option>
+}
+
+        </mat-select>
+        @if (checkError('nombre', 'required')) {
+        <mat-error>El nombre del cliente es obligatorio</mat-error>
+        }
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" type="submit" [disabled]="formRegistro.invalid">
+        Enviar
+    </button>
+</form>

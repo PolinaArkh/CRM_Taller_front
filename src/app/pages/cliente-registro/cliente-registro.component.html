@@ -1,0 +1,99 @@
+<form [formGroup]="clienteFormGroup">
+  <mat-horizontal-stepper>
+    <mat-step [stepControl]="clienteFormGroup">
+      <form [formGroup]="clienteFormGroup" class="step-form">
+        <ng-template matStepLabel>Información del Cliente</ng-template>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="nombre" placeholder="Ej. Juan" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Apellido</mat-label>
+          <input matInput formControlName="apellido" placeholder="Ej. Pérez" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Teléfono</mat-label>
+          <input matInput formControlName="telefono" placeholder="Ej. 674172543" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="Ej. juan@email.com" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Dirección</mat-label>
+          <input matInput formControlName="direccion" placeholder="Ej. Calle Mayor 123" required />
+        </mat-form-field>
+
+        <div class="button-group">
+          <button mat-flat-button color="primary" matStepperNext>
+            Siguiente
+          </button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="cocheFormGroup">
+      <form [formGroup]="cocheFormGroup" class="step-form">
+        <ng-template matStepLabel>Información del Coche</ng-template>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Matrícula</mat-label>
+          <input matInput formControlName="matricula" placeholder="Ej. 4567 HJK" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Marca</mat-label>
+          <input matInput formControlName="marca" placeholder="Ej. BMW" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Modelo</mat-label>
+          <input matInput formControlName="modelo" placeholder="Ej. 330i" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Año</mat-label>
+          <input matInput type="number" formControlName="año" placeholder="Ej. 2023" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>VIN</mat-label>
+          <input matInput formControlName="vin" placeholder="Ej. 1HGCM82633A123456" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Color</mat-label>
+          <input matInput formControlName="color" placeholder="Ej. Rojo" required />
+        </mat-form-field>
+
+        <div class="button-group">
+          <button mat-flat-button matStepperPrevious>Anterior</button>
+          <button mat-flat-button color="primary" matStepperNext>
+            Siguiente
+          </button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Confirmación</ng-template>
+      <div class="step-form">
+        <p class="done-text">
+          ¡Todos los datos han sido introducidos correctamente!
+        </p>
+
+        <div class="button-group">
+          <button mat-flat-button matStepperPrevious>Volver</button>
+          <button mat-flat-button color="accent" (click)="onSubmit()">
+            Enviar
+          </button>
+        </div>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</form>

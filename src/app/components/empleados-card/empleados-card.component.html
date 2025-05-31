@@ -1,0 +1,21 @@
+@if (empleado) {
+<mat-card class="empleado-card mat-elevation-z4">
+        <div class="card-content">
+                <div class="empleado-photo">
+                        <img src="/assets/admin_dp.JPG" alt="Empleado Photo" />
+                </div>
+
+                <div class="empleado-details">
+                        <mat-card-title>
+                                {{ empleado.Nombre }} {{ empleado.Apellido }}
+                        </mat-card-title>
+                        <p class="email">{{ empleado.Email }}</p>
+                        <div class="badge" [class.badge-admin]="empleado.Departamento === 'Admin'"
+                                [class.badge-mecanic]="empleado.Departamento === 'Mecanic'">
+                                {{ empleado.Departamento }}
+                        </div>
+                </div>
+        </div>
+</mat-card>
+} @else {
+<p>No employee selected or data not available.</p>}

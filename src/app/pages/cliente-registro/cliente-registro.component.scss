@@ -1,0 +1,58 @@
+
+.registro-header {
+  text-align: center;
+ 
+  margin-bottom: 2rem;
+ 
+}
+
+
+.nuevo-cliente-titulo {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #8e44ad;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #8e44ad;
+  padding-bottom: 5px;
+ 
+  transition: color 0.3s ease, transform 0.3s ease;
+  
+}
+
+
+.nuevo-cliente-titulo:hover {
+  color: #9b59b6;
+  
+  transform: translateY(-5px);
+
+}
+
+
+.form-container {
+  padding: 20px;
+}
+
+.step-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.done-text {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  
+  gap: 10px;
+  
+}
+
+.button-group button {
+  margin: 0 10px;
+  
+}

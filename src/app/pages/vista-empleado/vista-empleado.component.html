@@ -1,0 +1,16 @@
+@if (coches.length!==0) {
+<div class="table-container coches-lista">
+  <h2>Mis Coches</h2>
+  <app-lista-coches [coches]="coches" />
+</div>
+}@else {
+<p class="alert alert-warning">no hay Coches con una reparacion de momento</p>
+} @if (reparaciones.length!==0) {
+
+<div class="table-container reparaciones-lista">
+  <h2>Mis Reparaciones</h2>
+  <app-lista-reparaciones [reparaciones]="reparaciones" />
+</div>
+}@else {
+<p class="alert alert-warning">no hay reparaciones en este momento</p>
+}

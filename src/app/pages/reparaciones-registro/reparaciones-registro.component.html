@@ -1,0 +1,49 @@
+<form
+  [formGroup]="reparacionFormGroup"
+  (ngSubmit)="onSubmit()"
+  class="reparaciones-form"
+>
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>Descripcion</mat-label>
+    <textarea matInput required formControlName="Descripcion"></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>Coche</mat-label>
+    <mat-select placeholder="Coche" formControlName="CocheMatricula">
+      @for(coche of coches; track $index) {
+      <mat-option [value]="coche.Matricula">
+        {{ coche.Matricula }} - {{ coche.Marca }}
+      </mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" class="form-field" appearance="outline">
+    <mat-label>Presupuesto</mat-label>
+    <input
+      matInput
+      type="number"
+      class="presupuesto"
+      placeholder="0"
+      formControlName="Presupuesto"
+      required
+    />
+    <span matTextPrefix>€&nbsp;</span>
+  </mat-form-field>
+
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>Asignar mecánico</mat-label>
+    <mat-select placeholder="Mecánico" formControlName="MecanicoAsignadoID">
+      @for(mecanico of mecanicos; track $index) {
+      <mat-option [value]="mecanico.EmpleadoID">
+        {{ mecanico.Nombre }}
+      </mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" type="submit" class="button">
+    Guardar reparación
+  </button>
+</form>

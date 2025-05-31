@@ -1,0 +1,57 @@
+@for (reparacion of reparaciones; track reparacion) {
+<div class="repair-card">
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>
+        <strong>Descripción:</strong> {{ reparacion.Descripcion }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        <strong>Presupuesto:</strong>
+        {{
+          (reparacion.Presupuesto | currency : "EUR" : "symbol" : "1.2-2") ||
+            "No disponible"
+        }}
+      </mat-card-subtitle>
+      @if (rol === 'admin') {
+      <mat-card-subtitle>
+        <strong>Estado:</strong>
+        {{ reparacion.NombreEstado || "No disponible" }}
+      </mat-card-subtitle>
+      }
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>
+        <strong>Fecha de Entrada:</strong>
+        {{ (reparacion.FechaEntrada | date : "dd/MM/yyyy") || "No disponible" }}
+      </p>
+      <p>
+        <strong>Fecha de Salida:</strong>
+
+        {{ (reparacion.FechaSalida | date : "dd/MM/yyyy") || "No disponible" }}
+      </p>
+      <p>
+        <strong>Matrícula del Coche:</strong> {{ reparacion.CocheMatricula }}
+      </p>
+      <p>
+        <strong>Diagnóstico del Mecánico:</strong>
+        {{ reparacion.DiagnosticoMecanico || "No disponible" }}
+      </p>
+    </mat-card-content>
+    @if (rol === 'mecanico') {
+    <mat-card-actions align="end">
+      <button mat-flat-button color="accent" (click)="showDialog(reparacion)">
+        Modificar
+      </button>
+      <button
+        mat-stroked-button
+        color="primary"
+        (click)="showFixDialog(reparacion)"
+      >
+        Arreglado
+      </button>
+    </mat-card-actions>
+    }
+  </mat-card>
+</div>
+}

@@ -1,0 +1,28 @@
+<mat-tab-group
+  mat-stretch-tabs="false"
+  mat-align-tabs="start"
+  [(selectedIndex)]="selectedTabIndex"
+  (selectedIndexChange)="onTabChange($event)"
+  class="tabs-wrapper"
+>
+  <mat-tab label="Empleados">
+    <div class="tab-content">
+      <app-lista-empleados></app-lista-empleados>
+    </div>
+  </mat-tab>
+  <mat-tab label="Reparaciones">
+    <div class="tab-content">
+      <app-lista-reparaciones></app-lista-reparaciones>
+    </div>
+  </mat-tab>
+  <mat-tab label="Coches">
+    <div class="tab-content">
+      <app-lista-coches></app-lista-coches>
+    </div>
+  </mat-tab>
+  <mat-tab label="Clientes">
+    <div class="tab-content">
+      <app-lista-clientes />
+    </div>
+  </mat-tab>
+</mat-tab-group>

@@ -9,14 +9,6 @@ html {
       density: 0,
     )
   );
-
-  // .example-orange-primary-container {
-  //   @include mat.theme-overrides(
-  //     (
-  //       primary-container: #84ffff,
-  //     )
-  //   );
-  // }
 }
 
 .accent {
@@ -35,23 +27,64 @@ html {
   );
 }
 
-html {
-  @include mat.card-overrides(
+:root {
+  @include mat.badge-overrides(
     (
-      elevated-container-color: red,
-      elevated-container-shape: 32px,
-      title-text-size: 2rem,
+      background-color: var(--mat-sys-primary),
+      text-color: var(--mat-sys-on-error),
     )
   );
 }
 
-html,
-body {
-  height: 100%;
+:root {
+  @include mat.button-overrides(
+    (
+      filled-container-shape: 4px,
+    )
+  );
 }
+
+:root {
+  .mat-stroked-button {
+    border-radius: 4px;
+  }
+}
+
+:root {
+  @include mat.list-overrides(
+    (
+      list-item-container-shape: 4px,
+      active-indicator-shape: 4px,
+      list-item-leading-avatar-shape: 4px,
+    )
+  );
+}
+
 body {
+  color-scheme: light;
   margin: 0;
+  padding: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: var(--mat-sys-background);
   color: var(--mat-sys-on-background);
+}
+
+/* Custom transition */
+@keyframes rotate-out {
+  to {
+    transform: rotate(90deg);
+  }
+}
+@keyframes rotate-in {
+  from {
+    transform: rotate(-90deg);
+  }
+}
+::view-transition-old(count),
+::view-transition-new(count) {
+  animation-duration: 200ms;
+  animation-name: -ua-view-transition-fade-in, rotate-in;
+}
+::view-transition-old(count) {
+  animation-name: -ua-view-transition-fade-out, rotate-out;
 }

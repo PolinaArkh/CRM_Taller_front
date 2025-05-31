@@ -1,0 +1,76 @@
+<form class="registro-form" [formGroup]="cocheForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>Matricula</mat-label>
+    <input matInput formControlName="matricula" />
+    @if (cocheForm.get('matricula')?.hasError('required')) {
+    <mat-error> Matricula es obligatoria </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>Marca</mat-label>
+    <input matInput formControlName="marca" />
+    @if (cocheForm.get('marca')?.hasError('required')) {
+    <mat-error> Marca es obligatoria </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>Modelo</mat-label>
+    <input matInput formControlName="modelo" />
+    @if (cocheForm.get('modelo')?.hasError('required')) {
+    <mat-error> Modelo es obligatorio </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>Año</mat-label>
+    <input matInput type="number" formControlName="ano" />
+    @if (cocheForm.get('ano')?.hasError('required')) {
+    <mat-error> Año es obligatorio </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>VIN</mat-label>
+    <input matInput formControlName="vin" />
+    @if (cocheForm.get('vin')?.hasError('required')) {
+    <mat-error> VIN es obligatorio </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>Color</mat-label>
+    <input matInput formControlName="color" />
+    @if ( cocheForm.get('color')?.hasError('required')) {
+    <mat-error> Color es obligatorio </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>Cliente</mat-label>
+    <mat-select formControlName="clienteID">
+      @for (cliente of clientes; track $index) {
+      <mat-option [value]="cliente.ClienteID">
+        {{ cliente.Nombre }} {{ cliente.Apellido }}
+      </mat-option>
+      }
+    </mat-select>
+    @if (cocheForm.get('clienteID')?.hasError('required')) {
+    <mat-error> Cliente es obligatorio </mat-error>
+    }
+  </mat-form-field>
+
+  <button
+    mat-flat-button
+    color="primary"
+    type="submit"
+    [disabled]="cocheForm.invalid"
+  >
+    Crear
+  </button>
+
+  <button mat-flat-button color="warn" type="button" (click)="onCancel()">
+    Cancelar
+  </button>
+</form>
